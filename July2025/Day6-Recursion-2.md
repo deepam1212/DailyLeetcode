@@ -100,3 +100,19 @@ func findElement(arr: [Int], index: Int, target: Int) -> [Int] {
 
 print(findElement(arr: [1, 2, 3, 4, 1], index: 0, target: 1)) // Output: [0, 4]
 ```
+
+**Check Palidrome:**
+
+```swift
+func checkPalindrome(str: String, start: String.Index, end: String.Index) -> Bool {
+    if start < end {
+        if str[start] != str[end] {
+            return false
+        }
+        checkPalindrome(str: str, start: str.index(after: start), end: str.index(before: end))
+    }
+    return true
+}
+let str = "RADAAR"
+checkPalindrome(str: str, start: str.startIndex, end: str.index(str.startIndex, offsetBy: str.count - 1))
+```
