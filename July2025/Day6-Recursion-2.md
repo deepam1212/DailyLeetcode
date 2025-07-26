@@ -1,4 +1,4 @@
-**Given a and n, find a^n using recursion (N >= 0)
+**Given a and n, find a^n using recursion (N >= 0)**
 
 
 ```swift
