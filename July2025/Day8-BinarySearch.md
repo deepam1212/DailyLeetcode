@@ -3,6 +3,7 @@
 
 **Idea 2 : In Order of a BST is always Sorted as it follows Left Node Right**
 
+```
         4
       /   \
      0     10 
@@ -10,7 +11,7 @@
    -1  3   7   20
           / \   / \
          6   9  10 25
-
+```
 -1 0 3 4 6 7 9 10....
 so 3rd smallest element is 3
 
