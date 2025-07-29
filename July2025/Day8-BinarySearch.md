@@ -61,6 +61,6 @@ func kthSmallest(root: Node?, k: Int) -> Int? {
       2   3
      / \   \
     4   5   6
-
+ We can solve this using Morris InOrder Traversal as the Space C. is O(1)
 
 
