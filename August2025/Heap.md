@@ -23,6 +23,10 @@ Total Cost = 10 + 6 + 3 = 19
 **Heap is nothing but a Binary Tree**
 
 
+Formula to find parent index
+parentIndex = (i - 1) / 2
+
+
 
 
 
