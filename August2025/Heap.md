@@ -28,6 +28,8 @@ Total Cost = 10 + 6 + 3 = 19
 
 `Formula to have left child (2*i + 1), i is the index whose left child we want to get`
 `Formula to have right child (2*i + 2), i is the index whose right child we want to get`
+**Build a Heap:**
+
 
 
 
