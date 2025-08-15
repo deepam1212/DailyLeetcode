@@ -98,22 +98,32 @@ Brute force idea is Using Dictonary or XOR Operator, But hte T.C. is O(N), Bette
 So if we find the first occurance on the even index then it means before that index the unique element was not present because if it present then the first occurance must be at the odd index, so we can discard the completely left part of the array & similarly if the first occurance is at the odd index then it means on the right it is not be possible to find the unique element so we can discard the right side of that array from that element:
 
 ```swift
-func findUnique() -> Int {
-    var arr: [Int] = [8, 8, 5, 5, 9, 9, 6, 2, 2, 4, 4]
+func singleNonDuplicate(_ nums: [Int]) -> Int {
+    //
+    if nums.count == 1 {// Edge Case
+        return nums[0]
+    }
+    //
     var start: Int = 0
-    var end: Int = arr.count - 1
-    var unique: Int = -1
+    var end: Int = nums.count - 1
     var middle: Int = (start + end) / 2
     //
     while(start <= end) {
-        if arr[middle] == arr[middle + 1] || arr[middle] == arr[middle - 1] {
-            if arr[middle] == arr[middle - 1] {// Second Occurance
+        //
+        if nums[0] != nums[1] {// If the First Element is Unique
+            return nums[0]
+        } else if nums[nums.count - 1] != nums[nums.count - 2] {// Last Element is unique
+            return nums[nums.count - 1]
+        }
+        //
+        if nums[middle] == nums[middle + 1] || nums[middle] == nums[middle - 1] {
+            if nums[middle] == nums[middle - 1] {// Second Occurance
                 if middle % 2 == 0 {
                     end = middle - 2
                 } else {
                     start = middle + 1
                 }
-            } else if arr[middle] == arr[middle + 1] {// First Occurance
+            } else if nums[middle] == nums[middle + 1] {// First Occurance
                 if middle % 2 == 0 {
                     start = middle + 2
                 } else {
@@ -121,16 +131,19 @@ func findUnique() -> Int {
                 }
             }
         } else {
-            return arr[middle]
+            return nums[middle]
         }
         //
         middle = (start + end) / 2
         //
     }
     //
-    return unique
+    if start == nums.count - 1 && nums[start] != nums[start - 1] {
+        return nums[start]
+    }
+    //
+    return -1
 }
-print("Find Unique:", findUnique())
 ```
 
 
