@@ -186,23 +186,20 @@ func findLocalMinima() -> Int {
     var end: Int = nums.count - 1
     var middle: Int = (start + end) / 2
     //
+    if nums[0] < nums[1] {
+        return nums[0]
+    } else if nums[nums.count - 1] < nums[nums.count - 2] {
+        return nums[nums.count - 1]
+    }
+    //
     while(start <= end) {
-        if middle == 0 {
-            if nums[middle] < nums[middle + 1] {
-                return nums[middle]
-            }
-        } else if middle == nums.count - 1 {
-            if nums[middle] < nums[middle - 1] {
-                return nums[middle]
-            }
-        }
         //
         if nums[middle] < nums[middle - 1] && nums[middle] < nums[middle + 1] {
             return nums[middle]
         } else {
             if nums[middle - 1] < nums[middle] {
                 end = middle - 1
-            } else if nums[middle + 1] < nums[middle] {
+            } else if nums[middle + 1] < nums[middle] {// Just for Understanding only add the else condition as we are doing same in both the cases
                 start = middle + 1
             } else {
                 start = middle + 1
@@ -218,7 +215,8 @@ func findLocalMinima() -> Int {
 
 print("FindLocal", findLocalMinima())
 ```
-
+T.C. O(Log N)
+S.C. O(1)
 
 
 
