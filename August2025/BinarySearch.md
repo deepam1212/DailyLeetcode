@@ -146,7 +146,7 @@ func singleNonDuplicate(_ nums: [Int]) -> Int {
 }
 ```
 
-**Given array need to find the one local minima**
+**Meta Question: Given array need to find the one local minima**
 
 **Local Minima: An Element which is less than or equals to it's adjacent elements & Given array is unsorted:**
 ```swift
@@ -173,7 +173,51 @@ let arr: [Int] = [9, 8, 7, 3, 6, 4, 1, 3, 2]
 `L` Denotes the Local Minima
 
 ```
+**We can say that the minimum element is definately a local minima**
+**Brute Force Approach is find the Minimum Element which we can do it in O(N)**
 
+**We will go to or discard the part which is greater than the middle elemen & always go towards the minimum part as compared to the middle element**
+
+```swift
+func findLocalMinima() -> Int {
+    let nums: [Int] = [2, 7, 5, 8, 9]
+    var localMinima: Int = -1
+    var start: Int = 0
+    var end: Int = nums.count - 1
+    var middle: Int = (start + end) / 2
+    //
+    while(start <= end) {
+        if middle == 0 {
+            if nums[middle] < nums[middle + 1] {
+                return nums[middle]
+            }
+        } else if middle == nums.count - 1 {
+            if nums[middle] < nums[middle - 1] {
+                return nums[middle]
+            }
+        }
+        //
+        if nums[middle] < nums[middle - 1] && nums[middle] < nums[middle + 1] {
+            return nums[middle]
+        } else {
+            if nums[middle - 1] < nums[middle] {
+                end = middle - 1
+            } else if nums[middle + 1] < nums[middle] {
+                start = middle + 1
+            } else {
+                start = middle + 1
+            }
+        }
+        //
+        middle = (start + end) / 2
+    }
+    
+    
+    return localMinima
+}
+
+print("FindLocal", findLocalMinima())
+```
 
 
 
