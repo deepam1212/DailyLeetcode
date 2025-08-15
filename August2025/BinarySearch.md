@@ -146,7 +146,33 @@ func singleNonDuplicate(_ nums: [Int]) -> Int {
 }
 ```
 
+**Given array need to find the one local minima**
 
+**Local Minima: An Element which is less than or equals to it's adjacent elements & Given array is unsorted:**
+```swift
+let arr: [Int] = [9, 8, 7, 3, 6, 4, 1, 3, 2]
+                           _        _     _
+                           Local Minima's
+
+               9
+                 \ 
+                   8
+                    \
+                      7      
+                         \
+                           \              6   
+                             \          /    \
+                               \      /       4
+                                 3              \    3
+                                 L               \  /\
+                                                  \/  2
+                                                  1   L
+                                                  L 
+
+
+`L` Denotes the Local Minima
+
+```
 
 
 
