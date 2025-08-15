@@ -79,6 +79,78 @@ func frequencyofK() -> Int {
 }
 print("Frequency of K is:", frequencyofK())
 ```
+The time complexity for Finding frequency in a sorted Array is O(Log(N)) & if we do the it using Dictionary then T.C. is O(N)
+
+**Google Question: Every Element occurs twice except for 1. Fidn the Unique Element. Note: Duplicates are adjacent to each other & array isn't necessarily sorted.**
+
+```swift
+var arr: [Int] = [8, 8, 5, 5, 9, 9, 6, 2, 2, 4, 4]
+    index : =>    0  1  2  3  4  5  6  7  8  9  10
+                 |________________|   |___________|
+                   the first occu.      odd index  
+                 comes at the even
+                      index     
+```
+
+Brute force idea is Using Dictonary or XOR Operator, But hte T.C. is O(N), Better Brute Force is XOR, Binary Search can do this in O(Log N)
+**For Binary Search we need that we are able to discard the Array in half, not necessarily be sorted:**
+**Before the unique element: the first occurance before the unique element is even index & similarly on the right sode the first ocurance of k is odd Index:**
+So if we find the first occurance on the even index then it means before that index the unique element was not present because if it present then the first occurance must be at the odd index, so we can discard the completely left part of the array & similarly if the first occurance is at the odd index then it means on the right it is not be possible to find the unique element so we can discard the right side of that array from that element:
+
+```swift
+func findUnique() -> Int {
+    var arr: [Int] = [8, 8, 5, 5, 9, 9, 6, 2, 2, 4, 4]
+    var start: Int = 0
+    var end: Int = arr.count - 1
+    var unique: Int = -1
+    var middle: Int = (start + end) / 2
+    //
+    while(start <= end) {
+        if arr[middle] == arr[middle + 1] || arr[middle] == arr[middle - 1] {
+            if arr[middle] == arr[middle - 1] {// Second Occurance
+                if middle % 2 == 0 {
+                    end = middle - 2
+                } else {
+                    start = middle + 1
+                }
+            } else if arr[middle] == arr[middle + 1] {// First Occurance
+                if middle % 2 == 0 {
+                    start = middle + 2
+                } else {
+                    end = middle - 1
+                }
+            }
+        } else {
+            return arr[middle]
+        }
+        //
+        middle = (start + end) / 2
+        //
+    }
+    //
+    return unique
+}
+print("Find Unique:", findUnique())
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
