@@ -33,9 +33,31 @@ S.C. is O(N), because if we look closely in a Fibonacci tree, it is as close to 
 
 
 **Note: So for a question to be solved via D.P. 1 & 2 must be true**
+D.P. is nothing but store & reuse
 
 
+**Find the value of Fibonacci of N:**
+ ```swift
+func fibonacciDP(n: Int) -> Int {
+    if n <= 1 {
+        return n
+    }
+    
+    var dp = Array(repeating: -1, count: n+1)
+    if dp[n] != -1 {
+        return dp[n]
+    }
+    //
+    dp[n] = fibonacciDP(n: n-1) + fibonacciDP(n: n-2)
+    //
+    return dp[n]
+}
+print("fibonacciDP", fibonacciDP(n: 7))
+//0 1 1 2 3 5 8 13
 
+Now at every level the maximum number of functions called are 2, so T.C. is O(N), So we can say that we have reduced the T.C. from O(2^N) to O(N)
+S.C. is O(N), because we have created the DP Array on N
+```
 
 
 
