@@ -55,13 +55,27 @@ func fibonacciDP(n: Int) -> Int {
 print("fibonacciDP", fibonacciDP(n: 7))
 //0 1 1 2 3 5 8 13
 
+
+Or we can do this
+
+for i == 2; i <= N; i++ {
+  dp[i] = dp[i - 1] + dp[i - 2]
+}
+
+return dp
+
+
 Now at every level the maximum number of functions called are 2, so T.C. is O(N), So we can say that we have reduced the T.C. from O(2^N) to O(N)
 S.C. is O(N), because we have created the DP Array on N
 ```
 
+**Types of Dynamic Programming:**
 
-
-
+         **Top Down*                                |                    **Bottom Up**
+         {memoization}                              |                    {tabulation}
+                                                    |
+* It uses recursion                                 |  * It uses Iteration
+* Start with big problem to small problem           |  * Starts with small problem to big problem
 
 
 
