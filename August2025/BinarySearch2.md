@@ -89,6 +89,61 @@ func searchSortedRotatedArray() -> Int {
 print("searchSortedRotatedArray", searchSortedRotatedArray())
 ```
 
+**Question Find SquareRoot**
+
+```swift
+N = 10, answer = 3
+N = 16, answer = 4
+N = 29, answer = 5, since: 5 X % = 25
+
+N = 29
+
+    Low       High       Middle
+    0          29          15           15 * 15 > 29
+    0          14           7            7 * 7 > 29
+    0          6            3            3 * 3 < 29, Store 3 in answer, because 3 can be a potential answer
+    4          6            5            5 * 5 < 29, store 5
+    6          6            6            
+
+func findSquareRoot() -> Int {
+    let n: Int = 29
+    var start: Int = 1
+    var end: Int = n
+    var potentialAnswer: Int = -1
+    var middle = start + ((end - start) / 2)
+    //
+    while(start <= end) {
+        if middle * middle == n {
+            return middle
+        } else if middle * middle > n {
+            end = middle - 1
+        } else {
+            potentialAnswer = middle
+            start = middle + 1
+        }
+        //
+        middle = start + ((end - start) / 2)
+    }
+    //
+    return potentialAnswer
+}
+print("findSquareRoot", findSquareRoot())
+
+As O(Log N) is less T.C. than O(SQRT(N)), So we solved this using Binary Search instead of Brute Force Approach
+```
+
+**Question: Median os 2 Sorted Array**
+
+**Median is For Odd total count of array the Middle Element is the Median for any Array & for even count the mediam if arr[middle] + arr[middle + 1] / 2**
+
+```swift
+A: [Int] = [1,2,3]
+B: [Int] = [4,5]
+
+So the total array would be: [1,2,3,4,5] & the Mediam is the middle element of an array that is 3
+```
+
+
 
 
 
