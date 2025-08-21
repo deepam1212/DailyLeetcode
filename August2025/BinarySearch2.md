@@ -1,7 +1,7 @@
 **Optimized Formula:**
-
+```swift
 l + ((h - l) / 2), as l + h / 2 will go out of bound in some of the cases
-
+```
 Example:
 
 ```swift
