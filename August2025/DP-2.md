@@ -30,8 +30,12 @@ answer = [2,7,1]
        / \ 
   ROB /   \!ROB
 1 + f(4)  f(3)
-
-
-
-
 ```
+
+**Question: in am n*m matrix how many ways we can react from 0,0 to n-1, m-1**
+
+
+
+
+
+
