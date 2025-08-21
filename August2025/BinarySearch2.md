@@ -132,7 +132,7 @@ print("findSquareRoot", findSquareRoot())
 As O(Log N) is less T.C. than O(SQRT(N)), So we solved this using Binary Search instead of Brute Force Approach
 ```
 
-**Question: Median os 2 Sorted Array**
+**Question: Median of 2 Sorted Array**
 
 **Median is For Odd total count of array the Middle Element is the Median for any Array & for even count the mediam if arr[middle] + arr[middle + 1] / 2**
 
