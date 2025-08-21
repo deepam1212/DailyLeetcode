@@ -19,7 +19,7 @@ let mid2 = l + (h - l) / 2
 print("Safe mid:", mid2)
 ```
 
-88Search an Element in Sorted & Rotated Array:**
+**Search an Element in Sorted & Rotated Array:**
 
 ```swift
 var arr: [Int] = [8, 10, 15, 2, 4]
