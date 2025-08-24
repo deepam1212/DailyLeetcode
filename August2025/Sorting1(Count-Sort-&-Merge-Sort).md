@@ -59,3 +59,72 @@ func countSort() -> [Int] {
 print("Count Sort", countSort())
 ```
 
+```swift
+T.C. of Count Sort is O(n log n) & S.C. is O(N), where N is the output array space in the space complexity
+```
+
+
+**For handling the negative integers**
+
+
+
+```swift
+func countSort() -> [Int] {
+    var arr: [Int] = [2, -5, 1, 2, 3, -1, 4, 100, 5, 6, -3, 7, 8, 9, 100, 11, 31, 33]
+
+    // 1. Find min & max
+    var minElement = Int.max
+    var maxElement = Int.min
+    for item in arr {
+        minElement = min(minElement, item)
+        maxElement = max(maxElement, item)
+    }
+
+    // 2. Create frequency array (shifted by minElement)
+    let range = maxElement - minElement + 1
+    var frequencyArray = Array(repeating: 0, count: range)
+
+    for item in arr {
+        frequencyArray[item - minElement] += 1
+    }
+
+    // 3. Build output array
+    var outputArray: [Int] = []
+    for (index, count) in frequencyArray.enumerated() where count > 0 {
+        for _ in 0..<count {
+            outputArray.append(index + minElement)  // shift back
+        }
+    }
+
+    return outputArray
+}
+
+print("Count Sort:", countSort())
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
