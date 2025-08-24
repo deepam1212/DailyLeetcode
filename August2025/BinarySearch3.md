@@ -31,7 +31,7 @@ func minTimeToPaint(arr: [Int], painters: Int) -> Int {
     //
     for item in arr {
         maxTime += item // As if there is only one painter is there
-        minTime = max(minTime, item)
+        minTime = max(minTime, item)// it is only finding the max element in an array, we can say like if arr[i] > minTime, then minTime = arr[i]
     }
     //
     var middle: Int = (minTime + ((maxTime - minTime) / 2))
@@ -70,6 +70,22 @@ func checkTime(time: Int, totalPainters: Int, arr: [Int]) -> Bool {
 
 print("Total Time required by painters to Paint is: ", minTimeToPaint(arr: [5, 3, 6, 1, 9], painters: 2))
 ```
+
+```swift
+T.C. is O(N * log(maxTime - minTime))
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
