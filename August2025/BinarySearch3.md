@@ -72,9 +72,9 @@ print("Total Time required by painters to Paint is: ", minTimeToPaint(arr: [5, 3
 ```
 
 ```swift
-T.C. is O(N * log(maxTime - minTime))
+T.C. is O(N * log(maxTime - minTime)), Because we are iterting from minTime to maxTime
 ```
-
+**Question**
 
 
 
