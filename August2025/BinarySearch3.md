@@ -24,7 +24,52 @@ Time taken to paint the Board = [5, 3, 6, 1, 9]
 ```
 
 
+```swift
+func minTimeToPaint(arr: [Int], painters: Int) -> Int {
+    var minTime: Int = 0
+    var maxTime: Int = 0
+    //
+    for item in arr {
+        maxTime += item // As if there is only one painter is there
+        minTime = max(minTime, item)
+    }
+    //
+    var middle: Int = (minTime + ((maxTime - minTime) / 2))
+    var answer: Int = 0
+    //
+    while(minTime <= maxTime) {
+        if checkTime(time: middle, totalPainters: painters, arr: arr) {// If all Assigned painters can paint the board in given time, then we have to check if lower time is possible or not
+            maxTime = middle - 1
+            answer = middle
+        } else {
+            minTime = middle + 1
+        }
+        //
+        middle = (minTime + ((maxTime - minTime) / 2))
+    }
+    //
+    return answer
+}
 
+func checkTime(time: Int, totalPainters: Int, arr: [Int]) -> Bool {
+    //
+    var painters: Int = 1
+    var myTime: Int = 0
+    //
+    for item in arr {
+        myTime += item
+        //
+        if myTime > time {
+            painters += 1
+            myTime = item
+        }
+    }
+    //
+    return painters <= totalPainters
+}
+
+print("Total Time required by painters to Paint is: ", minTimeToPaint(arr: [5, 3, 6, 1, 9], painters: 2))
+```
 
 
 
