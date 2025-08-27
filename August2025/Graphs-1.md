@@ -8,8 +8,8 @@
 * Directed (Direction) (If i follow a celebrity does not mean the same person follows me too)
       example: Instagram
 ```swift
-        ....                    ....
-      (    ) ---------------> (      ) (Node) (Undirected example as facebook)
+       ....                     ....
+      (     ) ---------------> (    ) (Node) (Undirected example as facebook)
         ....                    ....
                Edge
        
@@ -56,6 +56,12 @@ weight
 node
 }
 ```
+
+**To Traverse a Graph we have 2 Techniques: DFS & BFS**
+
+**DFS(Depth First Search)**
+
+**We can take reference from Tree, Preorder, Post Order, In-Order & the equivilant of DFS is Level order Traversal**
 
 
 
