@@ -15,12 +15,12 @@
        
 ```     
 * UnDirected (No Direction)
-  ```swift
+```swift
         ....                    ....
       (    ) --------------- (      ) (Node) (Undirected example as facebook)
         ....                    ....
                   Edge
-  ```
+```
 * For undirected graph cycle length must be atlest 3
        
 * Connected graph 
