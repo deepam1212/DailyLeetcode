@@ -7,13 +7,13 @@
 **Properties/ Types of Graphs**
 * Directed (Direction) (If i follow a celebrity does not mean the same person follows me too)
       example: Instagram
-
+```swift
         ....                    ....
     *  (    ) ---------------> (      ) (Node) (Undirected example as facebook)
         ....                    ....
                Edge
        
-     
+```     
 * UnDirected (No Direction)
   ```swift
         ....                    ....
