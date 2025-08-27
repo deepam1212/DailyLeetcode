@@ -9,7 +9,7 @@
       example: Instagram
 ```swift
         ....                    ....
-    *  (    ) ---------------> (      ) (Node) (Undirected example as facebook)
+      (    ) ---------------> (      ) (Node) (Undirected example as facebook)
         ....                    ....
                Edge
        
@@ -17,11 +17,11 @@
 * UnDirected (No Direction)
   ```swift
         ....                    ....
-    *  (    ) --------------- (      ) (Node) (Undirected example as facebook)
+      (    ) --------------- (      ) (Node) (Undirected example as facebook)
         ....                    ....
                   Edge
   ```
-    * For undirected graph cycle length must be atlest 3
+* For undirected graph cycle length must be atlest 3
        
 * Connected graph 
 * Disconnected Graphs
