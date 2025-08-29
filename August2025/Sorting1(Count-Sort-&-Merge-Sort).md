@@ -76,16 +76,16 @@ func countSort() -> [Int] {
     var minElement = Int.max
     var maxElement = Int.min
     for item in arr {
-        minElement = min(minElement, item)
-        maxElement = max(maxElement, item)
+        minElement = min(minElement, item)// finding the smallest number in an Array
+        maxElement = max(maxElement, item)// finding the largest number in Array
     }
 
-    // 2. Create frequency array (shifted by minElement)
+    // 2. Create frequency array (shifted by minElement) (Formula is b - a + 1)
     let range = maxElement - minElement + 1
     var frequencyArray = Array(repeating: 0, count: range)
-
+    // inx = A[i] - min, so A[i] = inx = min
     for item in arr {
-        frequencyArray[item - minElement] += 1
+        frequencyArray[item - minElement] += 1// If we subtrack the negative numbers, then i can get the 0 position
     }
 
     // 3. Build output array
@@ -102,9 +102,51 @@ func countSort() -> [Int] {
 print("Count Sort:", countSort())
 ```
 
+**Count sort works well when the range of the array is small. as it wont work for 10 ^ 9, because then we have to create the frequency array with 10 ^ 9 + 1, it will only work for 10 ^ 5 to 10 ^ 6**
+
+**To calculate Range we have b - a + 1, Which we use in Count Sort to hande the negative numbers**
 
 
-
+**Merge Sort**
+**Merge Two sorted Arrays**
+```swift
+func mergeTwoSortedArray() {
+    var a: [Int] = [2, 4, 7, 8, 12]
+    var b: [Int] = [3, 5, 6, 7]
+    var aIndex: Int = 0
+    var bIndex: Int = 0
+    var outputArray: [Int] = []
+    //
+    while(aIndex < a.count && bIndex < b.count) {
+        //
+        if a[aIndex] < b[bIndex] {
+            if aIndex < a.count {
+                outputArray.append(a[aIndex])
+                aIndex += 1
+            }
+        } else {
+            if bIndex < b.count {
+                outputArray.append(b[bIndex])
+                bIndex += 1
+            }
+        }
+    }
+    //
+    while(aIndex < a.count) {
+        outputArray.append(a[aIndex])
+        aIndex += 1
+    }
+    //
+    while(bIndex < b.count) {
+        outputArray.append(b[bIndex])
+        bIndex += 1
+    }
+    //
+    print("OutputArray: \(outputArray)")
+}
+mergeTwoSortedArray()
+//OutputArray: [2, 3, 4, 5, 6, 7, 7, 8, 12]
+```
 
 
 
