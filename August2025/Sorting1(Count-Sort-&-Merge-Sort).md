@@ -111,6 +111,7 @@ print("Count Sort:", countSort())
 
 **Merge Two sorted Arrays**
 ```swift
+// Brute Force
 func mergeTwoSortedArray() {
     var a: [Int] = [2, 4, 7, 8, 12]
     var b: [Int] = [3, 5, 6, 7]
@@ -133,12 +134,12 @@ func mergeTwoSortedArray() {
         }
     }
     //
-    while(aIndex < a.count) {
+    while(aIndex < a.count) {// if any element in a is left
         outputArray.append(a[aIndex])
         aIndex += 1
     }
     //
-    while(bIndex < b.count) {
+    while(bIndex < b.count) {// If any element in b is left
         outputArray.append(b[bIndex])
         bIndex += 1
     }
@@ -147,10 +148,83 @@ func mergeTwoSortedArray() {
 }
 mergeTwoSortedArray()
 //OutputArray: [2, 3, 4, 5, 6, 7, 7, 8, 12]
+T.C. O(a.count + b.count), S.C. O(a.count + b.count)
 ```
 
+**Merge sort is a Recursive Algorithm**
 
 
+**Recursion is nothing but Divide & Conquer**
+```swift
+
+                [3, 10, 6, 8, 15, 2, 12, 18, 17]
+                          /        \      
+                        /            \
+                      /                \
+                    /                    \
+            [3, 10, 6, 8, 15]       [2, 12, 18, 17]
+                /     \                   /  \
+              /        \                 /     \
+        [3, 10, 6]     [8, 15]        [2, 12]   [18, 17]
+            /  \   
+     [3, 10]   [6]
+        / \
+      [3] [10]// Base Case
+
+To Find the middle element we have a formula (low + (high - low / 2)) or ((low + high) / 2)
+```
+
+**Merge Sort**
+
+```swift
+func mergeSort(arr: [Int], low: Int, high: Int) -> [Int] {
+    if low == high {// Base Case, return a single size Array
+        return [arr[low]]
+    }
+    var middle: Int = low + ((high - low) / 2)
+    let left = mergeSort(arr: arr, low: low, high: middle)
+    let right = mergeSort(arr: arr, low: middle + 1, high: high)
+    func merge(leftArr: [Int], rightArr: [Int]) -> [Int] {
+        var lIndex: Int = 0
+        var rIndex: Int = 0
+        //
+        var outputArr: [Int] = []
+        //
+        while(lIndex < leftArr.count && rIndex < rightArr.count) {
+            if leftArr[lIndex] < rightArr[rIndex] {
+                outputArr.append(leftArr[lIndex])
+                lIndex += 1
+            } else {
+                outputArr.append(rightArr[rIndex])
+                rIndex += 1
+            }
+        }
+        //
+        while(lIndex < leftArr.count) {
+            outputArr.append(leftArr[lIndex])
+            lIndex += 1
+        }
+        //
+        while(rIndex < rightArr.count) {
+            outputArr.append(rightArr[rIndex])
+            rIndex += 1
+        }
+        //
+        return outputArr
+    }
+    var outputArr: [Int] = merge(leftArr: left, rightArr: right)
+    return outputArr
+}
+let arr: [Int] = [3, 10, 3, 6, 8, 15, 2, 12, 18, 17]
+print("Merge Sort", mergeSort(arr: arr, low: 0, high: arr.count - 1))
+// Merge Sort [2, 3, 3, 6, 8, 10, 12, 15, 17, 18]
+T.C. O(N Log N), S.C. O(N), as the height of the recursion is Log N, so it must be Log N, but we are also merging so N + Log N, => O(N)
+T.C. O(Number of Functyions calls * time taken by each level)
+       We divide array in to 2    * We are merging them, N Times => O(N * Log N), & arr.sort() has O(N * Log N) & .sort() uses Merge Sort Algorithm
+            N / 2, N / 2          * N / 2 * N / 2  
+            N / 4, N / 4
+        we do this for Log N times
+```
 
 
 
