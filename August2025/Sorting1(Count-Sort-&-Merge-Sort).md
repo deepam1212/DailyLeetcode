@@ -108,6 +108,7 @@ print("Count Sort:", countSort())
 
 
 **Merge Sort**
+
 **Merge Two sorted Arrays**
 ```swift
 func mergeTwoSortedArray() {
