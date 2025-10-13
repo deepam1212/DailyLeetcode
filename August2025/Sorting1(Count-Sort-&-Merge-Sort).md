@@ -226,7 +226,38 @@ T.C. O(Number of Functyions calls * time taken by each level)
         we do this for Log N times
 ```
 
+**sort 0,1 & 2**
 
+```swift
+import Foundation
+
+class Solution {
+	func sortColors(_ A: inout [Int]) -> [Int] {
+        //
+        var low: Int = 0
+        var mid: Int = 0, end = A.count - 1
+        //
+        while(mid <= end) {
+            if A[mid] == 0 {
+                let temp = A[mid]
+                A[mid] = A[low]
+                A[low] = temp
+                low += 1
+                mid += 1
+            } else if A[mid] == 1 {
+                mid += 1
+            } else {
+                let temp = A[end]
+                A[end] = A[mid]
+                A[mid] = temp
+                end -= 1
+            }
+        }
+        //
+        return A
+	}
+}
+```
 
 
 
