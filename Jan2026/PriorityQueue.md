@@ -1,4 +1,3 @@
-```
 **Problem Description**
 
 You are given an array A of integers that represent the lengths of ropes.
@@ -60,7 +59,6 @@ Explanation 2:
  33 + 100 = 133
 
  So, total cost  to connect the ropes into one is 16 + 33 + 133 = 182.
-```
 
 ```java
 public class Solution {
