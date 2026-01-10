@@ -6,8 +6,10 @@ Find and return the minimum cost to connect these ropes into one rope.
 
 **Problem Constraints**
 
+```
 1 <= length of the array <= 100000
 1 <= A[i] <= 1000
+```
 
 **Input Format**
 
@@ -15,7 +17,7 @@ The only argument given is the integer array A.
 
 **Output Format**
 
-Return an integer denoting the minimum cost to connect these ropes into one rope.
+```Return an integer denoting the minimum cost to connect these ropes into one rope.```
 
 **Example Input**
 
