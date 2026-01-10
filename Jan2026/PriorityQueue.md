@@ -19,6 +19,7 @@ Return an integer denoting the minimum cost to connect these ropes into one rope
 
 **Example Input**
 
+```
 Input 1:
 
  A = [1, 2, 3, 4, 5]
@@ -26,9 +27,9 @@ Input 1:
 Input 2:
 
  A = [5, 17, 100, 11]
-
+```
 **Example Output**
-
+```
 Output 1:
 
  33
@@ -36,9 +37,9 @@ Output 1:
 Output 2:
 
  182
-
+```
 **Example Explanation**
-
+```
 Explanation 1:
 
 Given array A = [1, 2, 3, 4, 5].
@@ -49,7 +50,8 @@ Given array A = [1, 2, 3, 4, 5].
  6 + 9 = 15
 
  So, total cost  to connect the ropes into one is 3 + 6 + 9 + 15 = 33.
-
+```
+```
 Explanation 2:
 
  Given array A = [5, 17, 100, 11].
@@ -59,7 +61,7 @@ Explanation 2:
  33 + 100 = 133
 
  So, total cost  to connect the ropes into one is 16 + 33 + 133 = 182.
-
+```
 ```java
 public class Solution {
     public int solve(int[] A) {
