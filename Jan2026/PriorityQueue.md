@@ -17,7 +17,9 @@ The only argument given is the integer array A.
 
 **Output Format**
 
-```Return an integer denoting the minimum cost to connect these ropes into one rope.```
+```
+Return an integer denoting the minimum cost to connect these ropes into one rope.
+```
 
 **Example Input**
 
