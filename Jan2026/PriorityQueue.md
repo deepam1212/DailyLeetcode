@@ -154,7 +154,7 @@ You can return any possible Valid Heap Structure.
 
 **Solution:**
 
-```
+```java
 class Solution {
     public int[] buildHeap(int[] A) {
         //
@@ -259,7 +259,7 @@ The heap contains the elements 5, 3 and 1. The first extract min operation gets 
 ```
 
 **Code:**
-```
+```java
 public class Solution {
     public int[] solve(int[][] A) {
         //
