@@ -158,6 +158,99 @@ class Solution {
 }
 ```
 
+**Q2. Minimum Number of Squares**
+
+**Problem Description**
+```swift
+Given an integer A. Return minimum count of numbers, sum of whose squares is equal to A.
+```
+
+**Problem Constraints**
+```swift
+1 <= A <= 105
+```
+
+**Input Format**
+```swift
+First and only argument is an integer A.
+```
+
+**Output Format**
+```swift
+Return an integer denoting the minimum count.
+```
+
+**Example Input**
+```swift
+Input 1:
+
+ A = 6
+Input 2:
+
+ A = 5
+```
+
+**Example Output**
+```swift
+Output 1:
+
+ 3
+Output 2:
+
+ 2
+```
+
+**Example Explanation**
+```swift
+Explanation 1:
+
+ Possible combinations are : (12 + 12 + 12 + 12 + 12 + 12) and (12 + 12 + 22).
+ Minimum count of numbers, sum of whose squares is 6 is 3. 
+Explanation 2:
+
+ We can represent 5 using only 2 numbers i.e. 12 + 22 = 5
+```
+
+```swift
+Memoization Approach
+```
+```swift
+import Foundation
+
+class Solution {
+	func countMinSquares(_ A: inout Int) -> Int {
+        //
+        var dp: [Int] = Array(repeating: -1, count: A + 1)
+        return minFunction(A , &dp)
+	}
+
+    func minFunction(_ n: Int,_ dp: inout [Int]) -> Int {
+        if n == 0 {return 0}
+        if dp[n] != -1 {
+            return dp[n]
+        }
+        //
+        var answer: Int = Int.max
+        var x: Int = 1
+        //
+        while(x * x <= n) {
+            answer = min(answer, 1 + minFunction(n - x * x, &dp))
+            x += 1
+        }
+        dp[n] = answer
+        return answer
+    }
+}
+```
+```swift
+tabulation approach
+```
+
+```swift
+
+```
+
+
 
 
 
