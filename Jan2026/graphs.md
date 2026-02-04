@@ -253,4 +253,117 @@ class Solution {
 }
 ```
 
+**Connected Components in an Undirected Graph**
 
+**Problem Description**
+
+Given an undirected graph with A vertices numbered from 0 to A-1 and E edges, represented as a 2D array B[][], where each entry B[i] = [u, v] denotes an edge between vertices u and v.
+
+Your task is to return a list of all connected components. Each connected component should be represented as a list of its vertices, with all components returned in a collection where each component is listed separately.
+
+Before returning the result:
+- Sort the vertices inside each connected component.
+- Sort the list of components based on their first elements.
+
+---
+
+**Problem Constraints**
+
+1 ≤ A, E ≤ 10^5  
+0 ≤ B[i][0], B[i][1] < A  
+
+---
+
+**Input Format**
+
+The first argument is an integer A, representing the number of vertices.  
+The second argument is a 2D integer array B of size E x 2, where each entry represents an undirected edge.
+
+---
+
+**Output Format**
+
+Return a list of all connected components in sorted order.
+
+---
+
+**Example Input**
+
+Input 1:
+A = 5  
+B = [
+  [0, 1],
+  [2, 1],
+  [3, 4]
+]
+
+Input 2:
+A = 7  
+B = [
+  [0, 1],
+  [6, 0],
+  [2, 4],
+  [2, 3],
+  [3, 4]
+]
+
+---
+
+**Example Output**
+
+Output 1:
+[[0, 1, 2], [3, 4]]
+
+Output 2:
+[[0, 1, 6], [2, 3, 4], [5]]
+
+---
+
+**Example Explanation**
+
+- In Input 1, vertices {0,1,2} form one connected component and {3,4} form another.
+- In Input 2, vertices {0,1,6}, {2,3,4}, and {5} form three separate connected components.
+
+---
+
+**Solution**
+
+```swift
+import Foundation
+
+class Solution {
+    func getComponents(_ A: inout Int, _ B: inout [[Int]]) -> [[Int]] {
+
+        var graph = Array(repeating: [Int](), count: A)
+        for edge in B {
+            graph[edge[0]].append(edge[1])
+            graph[edge[1]].append(edge[0])
+        }
+
+        var visited = Array(repeating: false, count: A)
+        var result: [[Int]] = []
+
+        func dfs(node: Int, component: inout [Int]) {
+            visited[node] = true
+            component.append(node)
+
+            for nbr in graph[node] {
+                if !visited[nbr] {
+                    dfs(node: nbr, component: &component)
+                }
+            }
+        }
+
+        for i in 0..<A {
+            if !visited[i] {
+                var component: [Int] = []
+                dfs(node: i, component: &component)
+                component.sort()
+                result.append(component)
+            }
+        }
+
+        result.sort { $0[0] < $1[0] }
+        return result
+    }
+}
